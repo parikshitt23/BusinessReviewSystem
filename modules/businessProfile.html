@@ -1,0 +1,126 @@
+<div class="padding-50 padding-85-top dropdown" ng-controller="businessProfileController as profileCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-md-4 text-center">
+<!--
+                        <img id="businessProfile" class="img-circle avatar avatar-original" style="-webkit-user-select:none;
+                                display:block; margin:auto;" src="images/businessprofileimage.jpg">
+-->
+                    </div>
+                    <div class="col-md-8 text-center">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1 class="only-bottom-margin pull-left">{{businessData.name}}</h1>
+                            </div>
+
+                        </div>
+                        <div class="row only-bottom-margin">
+                            <div class="col-md-12 activity-mini">
+                                <uib-rating class="pull-left" ng-model="businessData.STARS" max="5" read-only="true" on-leave="overStar = null" titles="['Poor','Below Average','Average', 'Good' , 'Excellent']" aria-labelledby="default-rating"></uib-rating>
+                                <span class="pull-left">{{businessData.reviewCount}} Reviews</span>
+
+                            </div>
+                        </div>
+                        <div class="row only-bottom-margin">
+                            <div class="col-md-12">
+                                <div class="activity-mini">
+                                    <i class="glyphicon glyphicon-globe text-muted pull-left"></i><span class="pull-left">{{businessData.FULL_ADDRESS}}</span>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>More business info</h3>
+                    <hr>
+                    <div class="row" ng-repeat="info in businessInfo">
+                        <dt class="col-xs-6">
+                                {{info.key}}
+                            </dt>
+                        <dd>
+                            {{info.value}}
+                        </dd>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <uib-tabset active="active">
+                        <uib-tab index="0" heading="Reviews">
+                            <div class="row" ng-repeat="review in reviewData">
+                                <div class="col-xs-2 media-left padding-40-top">
+                                    <img class="media-object" src="/images/category_food.png" alt="food">
+                                </div>
+                                <div class="col-xs-10 mouse-pointer" ng-click="profileCtrl.openReviewerProfile(review.USER_ID)">
+                                    </br>
+                                    {{review.reviewerName}}
+                                    <div class="col-md-12 no-padding-left activity-mini">
+                                        <uib-rating ng-model="review.STARS" max="5" read-only="true" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></uib-rating>
+                                        <span class="padding-5-left">{{review.reviewDate}}</span>
+
+                                    </div>
+                                    </br>
+                                    {{review.text}}
+                                </div>
+                            </div>
+                        </uib-tab>
+                        <uib-tab index="1" heading="Rating Distribution">
+                            <div class="row" ng-controller="businessProfileChartsController as businessChartCtrl">
+                                <div class="col-xs-12" ng-if="isBusinessChartDataLoaded">
+                                    <nvd3 options="options" data="data"></nvd3>
+                                </div>
+
+
+                            </div>
+
+
+
+
+                        </uib-tab>
+
+                        <uib-tab index="2" heading="Yearly Rating Trends">
+
+                            <div class="row">
+                                <div ng-controller="monthlyBusinessTrendForBusinessController as ctrl">
+
+                                    <div class="row">
+
+
+                                    </div>
+
+                                    <div class="col-xs-12" ng-if="ismonthlyBusinessTrendForBusinessDataLoaded ">
+                                        <nvd3 class="with-3d-shadow with-transitions" options="monthlyBusinessTrendForBusinessOptions" data="monthlyBusinessTrendForBusinessData"></nvd3>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                        </uib-tab>
+                    </uib-tabset>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

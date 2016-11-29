@@ -25,7 +25,10 @@
     <script src="js/angular-animate.min.js"></script>  
     <script src="app.js"></script> 
       
-    <script src="modules/homeController.js"></script>  
+    <script src="modules/homeController.js"></script>
+    <script src="modules/businessHomeController.js"></script>
+    <script src="modules/businessProfileController.js"></script>
+
 	
   </head>
   <body ng-app = "businessApp">
@@ -73,7 +76,7 @@
     </nav>
     
     
-    <header id="first" style="background-image: url(img/a.jpg)" ng-constoller = "homeController">
+    <header id="first" style="background-image: url(img/a.jpg)" ng-controller="homeController">
         
         <div class="header-content" >
             <div class="inner">

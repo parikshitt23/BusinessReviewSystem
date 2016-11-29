@@ -15,4 +15,23 @@ businessApp.config(function($stateProvider, $urlRouterProvider) {
         url: '/home',
         templateUrl: 'modules/partialHome.html'
     })
+    
+     .state('businessHome', {
+        url: '/businessHome',
+        templateUrl: 'modules/businessHome.html',
+        params:{
+            cityName : null
+        }
+
+    })
+    
+    .state('businessProfile', {
+            url: '/businessProfile',
+            templateUrl: 'modules/businessProfile.html',
+            params: {
+                businessName: null
+            }
+
+        })
+    
 });

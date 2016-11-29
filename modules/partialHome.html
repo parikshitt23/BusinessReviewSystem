@@ -1,3 +1,6 @@
+
+
+
 <section class="bg-primary" id="one" ng-controller="homeController">
     <div class="container">
         <div class="row">
@@ -5,12 +8,14 @@
                 <h2 class="margin-top-0 text-primary">Where is home for you?</h2>
                 <br>
                 <form class="form-group form-group-lg">
-                    <input id="searchDropDown" data-toggle="dropdown" type="text" class="form-control input-lg" placeholder="Cities..." ng-click="openCityDropDown()"/>
-                    <ul class="dropdown-menu col-md-12 list-height" role="menu" ng-show="citiesList">
-                        <li role="menuitem" class="listOfCities" ng-repeat="city in cities | filter: searchCities">{{city}}</li>
-                    </ul>
+                    <div class="dropdown">
+                        <input ng-model="$root.searchCities" id="searchDropDown" data-toggle="dropdown" type="text" class="form-control input-lg text-dark" placeholder="Cities..." ng-click="openCityDropDown()" />
+                        <ul class="dropdown-menu col-md-12 list-height" role="menu" ng-show="citiesList">
+                            <li role="menuitem" class="listOfCities" ng-repeat="city in cities | filter: searchCities" ng-click="setSearchBox(city)">{{city}}</li>
+                        </ul>
+                    </div>
                     <br/>
-                    <button href="#three" class="btn btn-default btn-xl"><i class="fa fa-search" aria-hidden="true"></i> Search </button>
+                    <button href="#three" class="btn btn-default btn-xl" ng-click="onClickSearch()"><i class="fa fa-search" aria-hidden="true"></i> Search </button>
                 </form>
             </div>
         </div>
