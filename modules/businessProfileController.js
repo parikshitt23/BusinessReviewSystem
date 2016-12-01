@@ -9,6 +9,8 @@ businessApp.controller('businessProfileController', function($scope, $http, $sta
         var url = 'http://localhost:8080/BusinessReviewRest/business/' + $scope.businessName;
         $http.get(url).success(function(data) {
             $scope.businessData = data;
+            $scope.reviews = $scope.businessData.reviews;
+            console.log($scope.reviews);
             setBusinessInfo();
         }).error(function(data) {
             $scope.businessData = data;
