@@ -3,6 +3,8 @@ businessApp.controller('businessHomeController', function ($scope, $rootScope, $
     var city = $stateParams.cityName;
     var category = 'Food';
     $rootScope.isHome = false;
+    $scope.category = 'Food';
+
     
     var init = function () {
         var url = 'http://localhost:8080/BusinessReviewRest/city/' + city;
@@ -15,14 +17,18 @@ businessApp.controller('businessHomeController', function ($scope, $rootScope, $
     
     this.click2ndEvent = function (cities, category, review_count) {
         
-        this.category = category;
-        
+        //this.category = category;
+        $scope.category = category;
         var url = 'http://localhost:8080/BusinessReviewRest/city/' + city + '/' + category
         
         $http.get(url).success(function (data) {
             $scope.businesses = data;
+            //console.log(this.category);
+            
+            
         }).error(function (data) {
             $scope.businesses = data;
+            //$scope.category = "Hello";
         });
     }
     
