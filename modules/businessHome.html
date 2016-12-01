@@ -45,7 +45,7 @@
                 <div class="col-md-9">
 
                     <div class="panel panel-default">
-                        <div class="panel-body" style="max-height: 574px ">
+                        <div class="panel-body" style="max-height: 674px ">
                             <!--overflow-y: scroll;">-->
 
                             <div class="tab-content col-xs-8">
@@ -54,7 +54,7 @@
                                         <li class="media" ng-repeat="business in businesses">
                                             <div class="media-left">
                                                 <a>
-                                                    <img class="media-object" src="/images/category_food.png" alt="food">
+                                                    <img class="media-object" ng-src="/images/{{category}}{{$index}}.jpeg" alt="food" width="140" height="100">
                                                 </a>
                                             </div>
                                             <div class="media-body" ng-click="tabsCtrl.openBusinessProfile(business.id)">
