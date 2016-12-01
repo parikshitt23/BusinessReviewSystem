@@ -18,7 +18,7 @@
                         </div>
                         <div class="row only-bottom-margin">
                             <div class="col-md-12 activity-mini">
-                                <uib-rating class="pull-left" ng-model="businessData.STARS" max="5" read-only="true" on-leave="overStar = null" titles="['Poor','Below Average','Average', 'Good' , 'Excellent']" aria-labelledby="default-rating"></uib-rating>
+                                <uib-rating class="pull-left starcolor"  ng-model="businessData.stars" max="5" read-only="true" on-leave="overStar = null" titles="['Poor','Below Average','Average', 'Good' , 'Excellent']" aria-labelledby="default-rating"></uib-rating>
                                 <span class="pull-left">{{businessData.reviewCount}} Reviews</span>
 
                             </div>
@@ -71,7 +71,7 @@
                                     </br>
                                     {{review.reviewerName}}
                                     <div class="col-md-12 no-padding-left activity-mini">
-                                        <uib-rating ng-model="review.STARS" max="5" read-only="true" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></uib-rating>
+                                        <uib-rating class=starcolor ng-model="review.stars" max="5" read-only="true" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></uib-rating>
                                         <span class="padding-5-left">{{review.reviewDate}}</span>
 
                                     </div>
