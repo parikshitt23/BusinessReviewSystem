@@ -5,6 +5,7 @@ businessApp.controller('homeController', function ($scope, $rootScope, $http, $s
     }
     
     var init = function () {
+        $rootScope.isHome = true;
         var url = 'http://localhost:8080/BusinessReviewRest/city';
         $http.get(url).success(function (data) {
             $scope.cities = data;

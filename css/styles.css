@@ -279,7 +279,9 @@ header .header-content .inner p {
 footer {
     background-color:#2d2d2d;
 }
-
+.hideHeader{
+    display: none;
+}
 @media(min-width:768px) {
     .icon-lg {
         font-size: 80px;
@@ -316,7 +318,7 @@ footer {
     }
     
     section {
-        min-height: 600px;
+        min-height: 700px;
         padding: 100px 0;
     }
 

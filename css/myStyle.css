@@ -32,3 +32,18 @@
     color:orange;
 }
 
+.blackB{
+    background-color: #222;
+}
+
+#memcachedToggle{
+    opacity: 0.1;
+}
+#memcachedToggle:hover{
+    opacity: 1.0;
+}
+
+#reviewBtn{
+    background-color: #006dcc;
+    color: white;
+}

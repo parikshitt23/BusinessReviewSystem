@@ -39,7 +39,7 @@
       
     
       
-    <nav id="topNav" class="navbar navbar-default navbar-fixed-top" ng-constoller = "homeController">
+    <nav id="topNav" class="navbar navbar-default navbar-fixed-top affix" ng-class="{ 'blackB': !isHome }" ng-constoller = "homeController">
         
         <div class="container-fluid" >
             <div class="navbar-header">
@@ -51,7 +51,7 @@
                 </button>-->
                 <a class="navbar-brand page-scroll" href="#first">Business Review</a>
             </div>
-            <div class="navbar-collapse collapse" id="bs-navbar">
+            <div >
                 <ul class="nav navbar-nav">
                     <li>
                         <a class="page-scroll" href="#one">Intro</a>
@@ -82,7 +82,7 @@
     </nav>
     
     
-    <header id="first" style="background-image: url(img/a4.jpg)" ng-controller="homeController">
+    <header id="first" ng-class="{ 'hideHeader': !isHome }" style="background-image: url(img/a4.jpg)" ng-controller="homeController">
         
         <div class="header-content" >
             <div class="inner">
@@ -97,7 +97,7 @@
         
     
       
-      <div ui-view></div>
+      <div ui-view style="padding-top:60px"></div>
       
    <!-- <section id="two">
         <div class="container">

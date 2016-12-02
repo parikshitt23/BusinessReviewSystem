@@ -9,7 +9,7 @@
                     <div class="col-md-4 text-center">
                         
                          <button type="button" class="btn btn-primary dropdown" data-toggle="modal" data-target="#timeModal">Time</button>
-                        <button type="button" class="btn btn-primary dropdown" data-toggle="modal" data-target="#formModal">Form</button>
+                        
                             
 <!--
                         <img id="businessProfile" class="img-circle avatar avatar-original" style="-webkit-user-select:none;
@@ -70,6 +70,8 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <uib-tabset active="active">
+                        <div style="float:right"><button id="reviewBtn" type="button" class="btn btn-md" data-toggle="modal" data-target="#formModal"><i class="fa fa-plus" aria-hidden="true"></i>
+ Write a Review</button></div>
                         <uib-tab index="0" heading="Reviews">
                             <div class="row" ng-repeat="review in reviews">
                                 <div class="col-xs-2 media-left padding-40-top">
@@ -169,7 +171,7 @@ Enter a Review
                     <label  class="col-sm-2 control-label"
                               for="inputEmail3">Username</label>
                     <div class="col-sm-10">
-                        <textarea ng-model="review.username" class="form-control" rows="1" id="comment" placeholder="Username"></textarea>
+                        <textarea ng-model="review.userId" class="form-control" rows="1" id="comment" placeholder="Username"></textarea>
                         
                     </div>
                   </div>
@@ -177,7 +179,7 @@ Enter a Review
                     <label class="col-sm-2 control-label"
                           for="inputPassword3" >Comment</label>
                     <div class="col-sm-10">
-                         <textarea ng-model="review.comment" class="form-control" rows="5" id="comment"></textarea>
+                         <textarea ng-model="review.text" class="form-control" rows="5" id="comment"></textarea>
 
                     </div>
                   </div>
@@ -185,7 +187,7 @@ Enter a Review
                     <label class="col-sm-2 control-label"
                            >Rating</label>
                     <div class="col-sm-10">
-                         <span uib-rating ng-model="rate" max="5" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></span>
+                         <span uib-rating ng-model="review.stars" max="5" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></span>
 
                     </div>
                   </div>

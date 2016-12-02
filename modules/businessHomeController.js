@@ -8,7 +8,7 @@ businessApp.controller('businessHomeController', function ($scope, $rootScope, $
 
     
     var init = function () {
-        
+        $rootScope.isHome = false;
         if(isMemcached){
             
         var url = 'http://localhost:8080/BusinessReviewRest/city/' + city;

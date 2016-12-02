@@ -133,30 +133,49 @@ businessApp.controller('businessProfileController', function($scope, $http, $sta
     }
     
     $scope.review = {
-        username : '',
-        comment : ''
+        userId : '',
+        businessId : '',
+        stars : 0,
+        text : ''
+        
     }
+    
     
     
     $scope.onReviewSubmit = function(){
         var name = $scope.review.username;
         var comment = $scope.review.comment;
-        
+        $scope.review.businessId = $scope.businessId;
         console.log(name);
         console.log(comment);
         console.log($scope.rate);
         
-        var url = 'http://localhost:8080/BusinessReviewRest/postReview/' + $scope.businessId + '/' + name + '/' + comment + '/' + $scope.rate;
+        var url = 'http://192.168.0.21:8080/BusinessReviewRest/addReview';
         
-         $http.get(url).success(function (data) {
+        $http.post(url,$scope.review).success(function(data){
             $scope.businesses = data;
-            //console.log(this.category);
-            $scope.category = "hello";
-            
-        }).error(function (data) {
-            $scope.businesses = data;
-            $scope.category = "Hello";
+        }).error(function(data){
+             $scope.businesses = data;
         });
+        
+        
+        
+        
+        
+        
+        //var url = 'http://192.168.0.21:8080/BusinessReviewRest/postReview/' + $scope.businessId + '/' + name + '/' + comment + '/' + $scope.rate;
+            
+        
+        
+//         $http.get(url).success(function (data) {
+//            $scope.businesses = data;
+//            //console.log(this.category);
+//            $scope.category = "hello";
+//            
+//        }).error(function (data) {
+//            $scope.businesses = data;
+//            $scope.category = "Hello";
+//        });
         
     }
     

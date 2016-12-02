@@ -1,7 +1,8 @@
 
 
 
-<section style="background-image: url(img/a6.jpg)" class="bg-primary" id="one" ng-controller="homeController">
+<section style="background-image: url(img/a6.jpg); background-size:cover" class="bg-primary" id="one" ng-controller="homeController">
+    
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
@@ -11,13 +12,15 @@
                     <div class="dropdown">
                         <input ng-model="$root.searchCities" id="searchDropDown" data-toggle="dropdown" type="text" class="form-control input-lg text-dark" placeholder="Cities..." ng-click="openCityDropDown()" />
                         <ul class="dropdown-menu col-md-12 list-height" role="menu" ng-show="citiesList">
-                            <li role="menuitem" class="listOfCities" ng-repeat="city in cities | filter: searchCities" ng-click="setSearchBox(city)">{{city}}</li>
+                            <li style="padding-left:10px" role="menuitem" class="listOfCities" ng-repeat="city in cities | filter: searchCities" ng-click="setSearchBox(city)">{{city}}</li>
                         </ul>
                     </div>
                     <br/>
-                    <button href="#three" class="btn text-primary btn-default btn-xl" ng-click="onClickSearch()"> <h4 class="text-primary">Show!</h4> </button>
-                    
-<toggle ng-model="isMemcachedCheckBox.isMemcached" ng-change="changed()"></toggle>
+                    <div>
+                    <button href="#three" class="btn text-primary btn-default btn-xl" ng-click="onClickSearch()"> <h4 class="text-primary">Take me there!</h4> </button>
+                    <br><br>
+<toggle ng-model="isMemcachedCheckBox.isMemcached" ng-change="changed()" on="Memcached On" off="Memcached Off"  onstyle="btn-success" offstyle="btn-danger" style="width:150px; height:40px" id="memcachedToggle"></toggle>
+                    </div>
                 </form>
             </div>
         </div>
