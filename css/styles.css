@@ -88,7 +88,7 @@ p {
 }
 
 .text-primary {
-    color: #9c27b0;
+    color: #FBBC7F;
 }
 
 .modal-content {
@@ -204,7 +204,7 @@ footer {
 
     .navbar-default.affix .navbar-header .navbar-brand {
         font-size: 15px;
-        color: #9c27b0;
+        color: #FBBC7F;
         padding: 20px;
         letter-spacing: 1px;
     }
