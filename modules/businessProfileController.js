@@ -1,12 +1,27 @@
 businessApp.controller('businessProfileController', function($scope, $http, $state, $stateParams) {
     
+    var isMemcached = $stateParams.isMemcached;
+    
+    $scope.rate = 3;
+    
+      $scope.hoveringOver = function(value) {
+      $scope.overStar = value;
+    
+  };
+
     var init = function(){
-        $scope.businessName = $stateParams.businessName;
+        $scope.businessId = $stateParams.businessName;
         
        
         
+        if(isMemcached){
+        var url = 'http://localhost:8080/BusinessReviewRest/business/' + $scope.businessId;
+        }else{
+            var url = 'http://localhost:8080/BusinessReviewRest/off/business/' + $scope.businessId;
+        }
         
-        var url = 'http://localhost:8080/BusinessReviewRest/business/' + $scope.businessName;
+        console.log(url);
+        
         $http.get(url).success(function(data) {
             $scope.businessData = data;
             $scope.reviews = $scope.businessData.reviews;
@@ -117,7 +132,33 @@ businessApp.controller('businessProfileController', function($scope, $http, $sta
 
     }
     
+    $scope.review = {
+        username : '',
+        comment : ''
+    }
     
+    
+    $scope.onReviewSubmit = function(){
+        var name = $scope.review.username;
+        var comment = $scope.review.comment;
+        
+        console.log(name);
+        console.log(comment);
+        console.log($scope.rate);
+        
+        var url = 'http://localhost:8080/BusinessReviewRest/postReview/' + $scope.businessId + '/' + name + '/' + comment + '/' + $scope.rate;
+        
+         $http.get(url).success(function (data) {
+            $scope.businesses = data;
+            //console.log(this.category);
+            $scope.category = "hello";
+            
+        }).error(function (data) {
+            $scope.businesses = data;
+            $scope.category = "Hello";
+        });
+        
+    }
     
     
     init();

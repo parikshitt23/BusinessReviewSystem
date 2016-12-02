@@ -1,17 +1,17 @@
 <div class='row padding-50 padding-85-top dropdown' >
     <div class="panel panel-default ">
         <!-- Default panel contents -->
-         <div class="col-md-12"><h3>Best in Las Vegas</h3></div>
+         <div class="col-md-12"><h3>Best in {{$rootScope.searchCities}}</h3></div>
         <div class="panel-body">
 
-
+ <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#timeModal">Time</button>
 
             <div class="row"  ng-controller="businessHomeController as tabsCtrl">
                 <div class="col-md-3">
                     <div class="panel panel-default ">
                         <div class="panel-body">
                             <ul class="nav nav-pills nav-stacked " ng-init="this.initializer()">
-                                <li ng-class="{ active: tabsCtrl.isSelected(1)}"><a href ng-click="tabsCtrl.selectTab(1) ; tabsCtrl.click2ndEvent('','Food',1000)" data-toggle="pill">Food</a>
+                                <li ng-class="{ active: tabsCtrl.isSelected(1)}"><a href ng-click="tabsCtrl.selectTab(1) ; tabsCtrl.click2ndEvent('','restaurants',1000)" data-toggle="pill">Food</a>
                                 </li>
                                 <li ng-class="{ active: tabsCtrl.isSelected(2)}"><a href ng-click="tabsCtrl.selectTab(2); tabsCtrl.click2ndEvent('','restaurants',1000)" data-toggle="pill">Restaurants</a>
                                 </li>
@@ -74,7 +74,15 @@
                         </div>
                     </div>
                 </div>
-
+<div class="modal fade"  id="timeModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p class="text-justify">The query return data in {{runTime}} milliseconds</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 
             </div>

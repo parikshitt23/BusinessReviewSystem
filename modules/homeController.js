@@ -19,16 +19,25 @@ businessApp.controller('homeController', function ($scope, $rootScope, $http, $s
         $scope.citiesList = true;
     }
     
-    $scope.setSearchBox = function (searchString) {
+     $scope.setSearchBox = function (searchString) {
         $rootScope.searchCities = searchString.trim();
         $scope.citiesList = false;
     }
     
     $scope.onClickSearch = function(){
         $state.go('businessHome',{
-            cityName : $rootScope.searchCities
+            cityName : $rootScope.searchCities,
+            isMemcached : $scope.isMemcachedCheckBox.isMemcached
         });
     }
     
+    $scope.isMemcachedCheckBox = {
+        isMemcached : true
+    }
+    
+    $scope.changed = function(){
+        
+    }
+        
     init();
 });

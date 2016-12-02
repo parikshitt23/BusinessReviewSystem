@@ -1,13 +1,27 @@
 businessApp.controller('businessHomeController', function ($scope, $rootScope, $http, $stateParams, $state) {
     this.tab = 1;
     var city = $stateParams.cityName;
+    var isMemcached = $stateParams.isMemcached;
     var category = 'Food';
     $rootScope.isHome = false;
     
     var init = function () {
+        
+        if(isMemcached){
+            
         var url = 'http://localhost:8080/BusinessReviewRest/city/' + city;
+        }else{
+            var url = 'http://localhost:8080/BusinessReviewRest/off/city/' + city;
+        }
+        
+        console.log(url);
+        
         $http.get(url).success(function (data) {
+            
+            
+            
             $scope.businesses = data;
+            $scope.runTime = $scope.businesses[0].runTime;
         }).error(function (data) {
             $scope.businesses = data;
         });
@@ -17,10 +31,18 @@ businessApp.controller('businessHomeController', function ($scope, $rootScope, $
         
         this.category = category;
         
+        if(isMemcached){
         var url = 'http://localhost:8080/BusinessReviewRest/city/' + city + '/' + category
+        }else{
+            var url = 'http://localhost:8080/BusinessReviewRest/off/city/' + city + '/' + category
+        }
+        
+        
+        console.log(url);
         
         $http.get(url).success(function (data) {
             $scope.businesses = data;
+            $scope.runTime = $scope.businesses[0].runTime;
         }).error(function (data) {
             $scope.businesses = data;
         });
@@ -29,7 +51,8 @@ businessApp.controller('businessHomeController', function ($scope, $rootScope, $
      this.openBusinessProfile = function(businessId) {
         console.log(businessId);
         $state.go('businessProfile', {
-            businessName: businessId
+            businessName: businessId,
+            isMemcached : isMemcached
         });
     }
     

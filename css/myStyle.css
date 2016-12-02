@@ -8,3 +8,18 @@
     color:black;
 }
 
+#runtimeDiv{
+    display: none;
+}
+
+#runtimeHover:hover + #runtimeDiv{
+    display: block;
+}
+
+#timeMoldal{
+    transition-duration: 5s;
+}
+
+.wFont{
+    color : white;
+}

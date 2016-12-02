@@ -1,8 +1,8 @@
-var businessApp = angular.module('businessApp', ['ui.router', 'ui.bootstrap' ,'checklist-model','ngAnimate']);
+var businessApp = angular.module('businessApp', ['ui.router', 'ui.bootstrap' ,'checklist-model','ngAnimate','ui.toggle']);
 
 businessApp.run(function($rootScope) {
     $rootScope.isHome = true;
-    
+    $rootScope.isMemcached = true;
 });
 
 businessApp.config(function($stateProvider, $urlRouterProvider) {
@@ -20,7 +20,8 @@ businessApp.config(function($stateProvider, $urlRouterProvider) {
         url: '/businessHome',
         templateUrl: 'modules/businessHome.html',
         params:{
-            cityName : null
+            cityName : null,
+            isMemcached : true
         }
 
     })
@@ -29,7 +30,8 @@ businessApp.config(function($stateProvider, $urlRouterProvider) {
             url: '/businessProfile',
             templateUrl: 'modules/businessProfile.html',
             params: {
-                businessName: null
+                businessName: null,
+                isMemcached : true
             }
 
         })
