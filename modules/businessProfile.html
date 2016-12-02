@@ -65,7 +65,7 @@
                         <uib-tab index="0" heading="Reviews">
                             <div class="row" ng-repeat="review in reviews">
                                 <div class="col-xs-2 media-left padding-40-top">
-                                    <img class="media-object" src="/images/user0.jpg" alt="food">
+                                    <img class="media-object imagesize img-circle" ng-src="/images/user{{$index}}.jpg" alt="food">
                                 </div>
                                 <div class="col-xs-10 mouse-pointer" ng-click="profileCtrl.openReviewerProfile(review.USER_ID)">
                                     </br>
@@ -77,6 +77,8 @@
                                     </div>
                                     </br>
                                     {{review.text}}
+                                    </br>
+                                    </br>
                                 </div>
                             </div>
                         </uib-tab>
