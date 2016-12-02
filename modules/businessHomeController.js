@@ -4,6 +4,8 @@ businessApp.controller('businessHomeController', function ($scope, $rootScope, $
     var isMemcached = $stateParams.isMemcached;
     var category = 'Food';
     $rootScope.isHome = false;
+    $scope.category = 'Food';
+
     
     var init = function () {
         
@@ -29,9 +31,11 @@ businessApp.controller('businessHomeController', function ($scope, $rootScope, $
     
     this.click2ndEvent = function (cities, category, review_count) {
         
-        this.category = category;
+  //this.category = category;
+        $scope.category = category;
         
         if(isMemcached){
+      
         var url = 'http://localhost:8080/BusinessReviewRest/city/' + city + '/' + category
         }else{
             var url = 'http://localhost:8080/BusinessReviewRest/off/city/' + city + '/' + category
@@ -42,9 +46,12 @@ businessApp.controller('businessHomeController', function ($scope, $rootScope, $
         
         $http.get(url).success(function (data) {
             $scope.businesses = data;
+
             $scope.runTime = $scope.businesses[0].runTime;
+
         }).error(function (data) {
             $scope.businesses = data;
+            //$scope.category = "Hello";
         });
     }
     

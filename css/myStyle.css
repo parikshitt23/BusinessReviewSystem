@@ -3,10 +3,14 @@
     color: black;
         
 }
-
+.imagesize{
+    width: 80px;
+    height: 80px;
+}
 .dropdown{
     color:black;
 }
+
 
 #runtimeDiv{
     display: none;
@@ -23,3 +27,8 @@
 .wFont{
     color : white;
 }
+
+.starcolor{
+    color:orange;
+}
+
