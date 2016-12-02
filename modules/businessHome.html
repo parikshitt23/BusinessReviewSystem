@@ -1,10 +1,12 @@
 <div class='row padding-50 padding-85-top dropdown' >
     <div style="background-image: url(img/a15.jpg)" class="panel panel-default ">
         <!-- Default panel contents -->
-         <div class="col-md-12"><h3>Best in {{$rootScope.searchCities}}</h3></div>
+         <div class="col-md-12"><h3 style="width:auto">Best in {{$rootScope.searchCities}}</h3>
+             <div style="float:right">
+ <button type="button" class="btn btn-success" data-toggle="modal" data-target="#timeModal">Page Load Time</button>
+            </div>
+        </div>
         <div class="panel-body">
-
- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#timeModal">Time</button>
 
             <div class="row"  ng-controller="businessHomeController as tabsCtrl">
                 <div class="col-md-3">
@@ -84,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-<div class="modal fade"  id="timeModal">
+<div class="modal fade wFont"  id="timeModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">

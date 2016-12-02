@@ -154,6 +154,10 @@ businessApp.controller('businessProfileController', function($scope, $http, $sta
         
         $http.post(url,$scope.review).success(function(data){
             $scope.businesses = data;
+            $scope.businessData = data;
+            $scope.reviews = $scope.businessData.reviews;
+            console.log($scope.reviews);
+            setBusinessInfo();
         }).error(function(data){
              $scope.businesses = data;
         });
