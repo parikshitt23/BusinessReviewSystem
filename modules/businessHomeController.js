@@ -11,9 +11,9 @@ businessApp.controller('businessHomeController', function ($scope, $rootScope, $
         $rootScope.isHome = false;
         if(isMemcached){
             
-        var url = 'http://localhost:8080/BusinessReviewRest/city/' + city;
+        var url = 'http://10.136.14.42:8080/BusinessReviewRest/city/' + city;
         }else{
-            var url = 'http://localhost:8080/BusinessReviewRest/off/city/' + city;
+            var url = 'http://10.136.14.42:8080/BusinessReviewRest/off/city/' + city;
         }
         
         console.log(url);
@@ -36,9 +36,9 @@ businessApp.controller('businessHomeController', function ($scope, $rootScope, $
         
         if(isMemcached){
       
-        var url = 'http://localhost:8080/BusinessReviewRest/city/' + city + '/' + category
+        var url = 'http://10.136.14.42:8080/BusinessReviewRest/city/' + city + '/' + category
         }else{
-            var url = 'http://localhost:8080/BusinessReviewRest/off/city/' + city + '/' + category
+            var url = 'http://10.136.14.42:8080/BusinessReviewRest/off/city/' + city + '/' + category
         }
         
         

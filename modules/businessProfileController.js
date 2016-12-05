@@ -15,9 +15,9 @@ businessApp.controller('businessProfileController', function($scope, $http, $sta
        
         
         if(isMemcached){
-        var url = 'http://localhost:8080/BusinessReviewRest/business/' + $scope.businessId;
+        var url = 'http://10.136.14.42:8080/BusinessReviewRest/business/' + $scope.businessId;
         }else{
-            var url = 'http://localhost:8080/BusinessReviewRest/off/business/' + $scope.businessId;
+            var url = 'http://10.136.14.42:8080/BusinessReviewRest/off/business/' + $scope.businessId;
         }
         
         console.log(url);
@@ -150,7 +150,7 @@ businessApp.controller('businessProfileController', function($scope, $http, $sta
         console.log(comment);
         console.log($scope.rate);
         
-        var url = 'http://192.168.0.21:8080/BusinessReviewRest/addReview';
+        var url = 'http://10.136.14.42:8080/BusinessReviewRest/addReview';
         
         $http.post(url,$scope.review).success(function(data){
             $scope.businesses = data;
